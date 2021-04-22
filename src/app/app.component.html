@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>
+Registration Page
+</title>
+</head>
+<body bgcolor="navyblue">
+<br>
+<br>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="example-form" style="text-align:center">
+ <mat-form-field  class="example-full-width" style="text-align:center">
+    <mat-label><b>User Form Creation</b></mat-label>
+    <input matInput disabled value="" >
+  </mat-form-field>
+<table class="example-full-width" cellspacing="0" >
+  <p>
+    <mat-form-field appearance="legacy" class="example-full-width">
+      <mat-label >First name</mat-label>
+     <input matInput required  class="form-control" formControlName="fname" placeholder="Ex.vicky">
+    </mat-form-field></p>
+  <p>
+   <mat-form-field class="example-full-width" appearance="legacy">
+      <mat-label>Last Name</mat-label>
+      <input matInput required class="form-control" formControlName="lname" placeholder="Ex.prabha">
+    </mat-form-field>
+  </p>
+  <p>
+    <div class="formGroup">
+   <mat-form-field appearance="legacy">
+     <mat-label>Gender</mat-label>
+     <select matNativeControl required>
+     <option value="Male" formControlName="Male">Male</option>
+     <option value="Female"  formControlName="Female">Female</option>
+     </select>
+   </mat-form-field>
+    </div>
+  <p>
+   <mat-form-field class="example-full-width" appearance="legacy">
+      <mat-label>Address</mat-label>
+      <textarea matInput placeholder="Ex. 100 Main St" required class="form-control" formControlName="Address"></textarea>
+   </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="example-full-width" appearance="legacy">
+      <mat-label>City</mat-label>
+      <input matInput placeholder="Ex. San Francisco"required class="form-control" formControlName="City">
+    </mat-form-field>
+  </p>
+
+ <p>
+    <mat-form-field class="example-full-width" appearance="legacy" >
+      <mat-label>State</mat-label>
+      <input matInput placeholder="Ex. California" required class="form-control" formControlName="State">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="example-full-width" appearance="legacy">
+      <mat-label>PostalCode</mat-label>
+      <input matInput #postalCode maxlength="6" placeholder="Ex. 560102" value="" required class="form-control"  formControlName="postalCode">
+      <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="example-full-width" appearance="legacy">
+      <mat-label>MobileNumber</mat-label>
+      <input matInput #MobileNumber maxlength="10" placeholder="Ex. 9876543210" value="" required class="form-control" formControlName="MobileNumber">
+      <mat-hint align="end">{{MobileNumber.value.length}} / 10</mat-hint>
+    </mat-form-field>
+  </p>
+ </table>
+   <input type="submit" value="submit" >
+</form>
+<div class="form-group" style="text-align:center">
+  <mat-form-field>
+    <mat-label>Select to view</mat-label>
+     <mat-select>
+     <mat-option (onSelectionChange)="onSubmit()" *ngFor="let word of wordlist" value="fname">{{word.viewValue}}</mat-option>
+   </mat-select>
+ </mat-form-field>
+</div>
+
