@@ -9,7 +9,7 @@ import {OverlayOutsideClickDispatcher } from '@angular/cdk/overlay';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  userForm=new FormGroup({
+  userCreate=new FormGroup({
     fname:new FormControl(""),
     lname:new FormControl(""),
     Male:new FormControl(""),
@@ -21,7 +21,7 @@ export class AppComponent  {
     MobileNumber:new FormControl(""),
   })
   onSubmit(){
-    console.warn(this.userForm.value);
+    console.warn(this.userCreate.value);
   }
   wordlist:any = [
     {value: 'fname',viewValue:''}
